@@ -1,0 +1,221 @@
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 100
+Server version: 8.3.0 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| bit2               |
+| employee           |
+| huye2              |
+| huye3              |
+| information_schema |
+| mysql              |
+| performance_schema |
+| ruhande            |
+| sys                |
++--------------------+
+9 rows in set (0.00 sec)
+
+mysql> use ruhande;
+Database changed
+mysql> INSERT INTO NGOMA VALUES(32442,'ANGE','BARORE','FEMALE','SOURTHERN','MUHANGA','RUKIRA','MBUGA','ange4@gmail.com','890089790');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO NGOMA VALUES(3454,'ALLEY','BAGUME','FEMALE','SOURTHERN','NYAMAGABE','RUBAYA','KINIGI','ALLEY4@gmail.com',5678990');
+    '> INSERT INTO NGOMA VALUES(3454,'ALLEY','BAGUME','FEMALE','SOURTHERN','NYAMAGABE','RUBAYA','KINIGI','ALLEY4@gmail.com',5678990');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '');
+INSERT INTO NGOMA VALUES(3454,'ALLEY','BAGUME','FEMALE','SOURTHERN','NYAMAGA' at line 1
+mysql> INSERT INTO NGOMA VALUES(3454,'ALLEY','BAGUME','FEMALE','SOURTHERN','NYAMAGABE','RUBAYA','KINIGI','ALLEY4@gmail.com','5678990');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO NGOMA VALUES(3884,'ALLEY','BIRUTA','FEMALE',NORTHERN','NYAMAGABE','RUBAYA','KINIGI','ALLEBI4@gmail.com','5768990');
+    '> INSERT INTO NGOMA VALUES(3884,'ALLEY','BIRUTA','FEMALE',NORTHERN','NYAMAGABE','RUBAYA','KINIGI','ALLEBI4@gmail.com','5768990');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '','NYAMAGABE','RUBAYA','KINIGI','ALLEBI4@gmail.com','5768990');
+INSERT INTO NGOM' at line 1
+mysql> INSERT INTO NGOMA VALUES(3884,'ALLEY','BIRUTA','FEMALE','NORTHERN','NYAMAGABE','RUBAYA','KINIGI','ALLEBI4@gmail.com','5768990');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from ngoma;
++-------+------------+-----------+--------+-----------+-----------+---------+---------+----------------------+------------+
+| ID    | FIRST_NAME | LAST_NAME | GENDER | PROVINCE  | DISTRICT  | SECTOR  | CELL    | EMAIL                | TEL_NUMBER |
++-------+------------+-----------+--------+-----------+-----------+---------+---------+----------------------+------------+
+|    23 | INNOCENT   | KUBWIMANA | MALE   | SOUTHERN  | HUYE      | TUMBA   | MUKONI  | innocentm@.gmail.com | 0784894940 |
+| 22222 | ARE        | IRAKIZA   | MALE   | EASTERN   | KAYONZA   | RUKARA  | RUBUYE  | are2@gmail.com       | 078984978  |
+|  3425 | LUISE      | CYIZERE   | FEMALE | EASTERN   | BUGESERA  | KAGUGU  | NYANGE  | luise6@gmail.com     | 078976594  |
+|  2342 | SANDO      | NEZERWA   | FEMALE | NORTHERN  | MUSANZE   | MUHOZA  | RUSANGE | nezerwa6@gmail.com   | 074674894  |
+|  2343 | YVONNE     | TUMUKUNDE | FEMALE | EASTERN   | RWAMAGANA | MUKARAN | KIGOMBE | yvonne@gmail.com     | 9847689656 |
+|  3423 | RUTH       | HATANGA   | FEMALE | NORTHERN  | GICUMBI   | RUTARE  | GASHARU | ruth43@gmail.com     | 56327894   |
+|   234 | ALINE      | IRA       | FEMALE | WESTERN   | RUBAVU    | GISENYI | RUKOMA  | ira456@gmail.com     | 6789048378 |
+|  3423 | RUTH       | HATANGA   | FEMALE | NORTHERN  | GICUMBI   | RUTARE  | GASHARU | ruth43@gmail.com     | 56327894   |
+|  3423 | RUTH       | HATANGA   | FEMALE | NORTHERN  | GICUMBI   | RUTARE  | GASHARU | ruth43@gmail.com     | 56327894   |
+|  3423 | RUTH       | HATANGA   | FEMALE | NORTHERN  | GICUMBI   | RUTARE  | GASHARU | ruth43@gmail.com     | 56327894   |
+| 32442 | ANGE       | BARORE    | FEMALE | SOURTHERN | MUHANGA   | RUKIRA  | MBUGA   | ange4@gmail.com      | 890089790  |
+|  3454 | ALLEY      | BAGUME    | FEMALE | SOURTHERN | NYAMAGABE | RUBAYA  | KINIGI  | ALLEY4@gmail.com     | 5678990    |
+|  3884 | ALLEY      | BIRUTA    | FEMALE | NORTHERN  | NYAMAGABE | RUBAYA  | KINIGI  | ALLEBI4@gmail.com    | 5768990    |
++-------+------------+-----------+--------+-----------+-----------+---------+---------+----------------------+------------+
+13 rows in set (0.00 sec)
+
+mysql> alter ngoma add nationality;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ngoma add nationality' at line 1
+mysql> alter table  ngoma add nationality char(300);
+ERROR 1074 (42000): Column length too big for column 'nationality' (max = 255); use BLOB or TEXT instead
+mysql> alter table  ngoma add nationality char(30);
+Query OK, 13 rows affected (0.06 sec)
+Records: 13  Duplicates: 0  Warnings: 0
+
+mysql> select * from ngoma;
++-------+------------+-----------+--------+-----------+-----------+---------+---------+----------------------+------------+-------------+
+| ID    | FIRST_NAME | LAST_NAME | GENDER | PROVINCE  | DISTRICT  | SECTOR  | CELL    | EMAIL                | TEL_NUMBER | nationality |
++-------+------------+-----------+--------+-----------+-----------+---------+---------+----------------------+------------+-------------+
+|    23 | INNOCENT   | KUBWIMANA | MALE   | SOUTHERN  | HUYE      | TUMBA   | MUKONI  | innocentm@.gmail.com | 0784894940 | NULL        |
+| 22222 | ARE        | IRAKIZA   | MALE   | EASTERN   | KAYONZA   | RUKARA  | RUBUYE  | are2@gmail.com       | 078984978  | NULL        |
+|  3425 | LUISE      | CYIZERE   | FEMALE | EASTERN   | BUGESERA  | KAGUGU  | NYANGE  | luise6@gmail.com     | 078976594  | NULL        |
+|  2342 | SANDO      | NEZERWA   | FEMALE | NORTHERN  | MUSANZE   | MUHOZA  | RUSANGE | nezerwa6@gmail.com   | 074674894  | NULL        |
+|  2343 | YVONNE     | TUMUKUNDE | FEMALE | EASTERN   | RWAMAGANA | MUKARAN | KIGOMBE | yvonne@gmail.com     | 9847689656 | NULL        |
+|  3423 | RUTH       | HATANGA   | FEMALE | NORTHERN  | GICUMBI   | RUTARE  | GASHARU | ruth43@gmail.com     | 56327894   | NULL        |
+|   234 | ALINE      | IRA       | FEMALE | WESTERN   | RUBAVU    | GISENYI | RUKOMA  | ira456@gmail.com     | 6789048378 | NULL        |
+|  3423 | RUTH       | HATANGA   | FEMALE | NORTHERN  | GICUMBI   | RUTARE  | GASHARU | ruth43@gmail.com     | 56327894   | NULL        |
+|  3423 | RUTH       | HATANGA   | FEMALE | NORTHERN  | GICUMBI   | RUTARE  | GASHARU | ruth43@gmail.com     | 56327894   | NULL        |
+|  3423 | RUTH       | HATANGA   | FEMALE | NORTHERN  | GICUMBI   | RUTARE  | GASHARU | ruth43@gmail.com     | 56327894   | NULL        |
+| 32442 | ANGE       | BARORE    | FEMALE | SOURTHERN | MUHANGA   | RUKIRA  | MBUGA   | ange4@gmail.com      | 890089790  | NULL        |
+|  3454 | ALLEY      | BAGUME    | FEMALE | SOURTHERN | NYAMAGABE | RUBAYA  | KINIGI  | ALLEY4@gmail.com     | 5678990    | NULL        |
+|  3884 | ALLEY      | BIRUTA    | FEMALE | NORTHERN  | NYAMAGABE | RUBAYA  | KINIGI  | ALLEBI4@gmail.com    | 5768990    | NULL        |
++-------+------------+-----------+--------+-----------+-----------+---------+---------+----------------------+------------+-------------+
+13 rows in set (0.00 sec)
+
+mysql> update ngoma set natinality='Rwandan';
+ERROR 1054 (42S22): Unknown column 'natinality' in 'field list'
+mysql> update ngoma set nationality='Rwandan';
+Query OK, 13 rows affected (0.00 sec)
+Rows matched: 13  Changed: 13  Warnings: 0
+
+mysql> select * from ngoma;
++-------+------------+-----------+--------+-----------+-----------+---------+---------+----------------------+------------+-------------+
+| ID    | FIRST_NAME | LAST_NAME | GENDER | PROVINCE  | DISTRICT  | SECTOR  | CELL    | EMAIL                | TEL_NUMBER | nationality |
++-------+------------+-----------+--------+-----------+-----------+---------+---------+----------------------+------------+-------------+
+|    23 | INNOCENT   | KUBWIMANA | MALE   | SOUTHERN  | HUYE      | TUMBA   | MUKONI  | innocentm@.gmail.com | 0784894940 | Rwandan     |
+| 22222 | ARE        | IRAKIZA   | MALE   | EASTERN   | KAYONZA   | RUKARA  | RUBUYE  | are2@gmail.com       | 078984978  | Rwandan     |
+|  3425 | LUISE      | CYIZERE   | FEMALE | EASTERN   | BUGESERA  | KAGUGU  | NYANGE  | luise6@gmail.com     | 078976594  | Rwandan     |
+|  2342 | SANDO      | NEZERWA   | FEMALE | NORTHERN  | MUSANZE   | MUHOZA  | RUSANGE | nezerwa6@gmail.com   | 074674894  | Rwandan     |
+|  2343 | YVONNE     | TUMUKUNDE | FEMALE | EASTERN   | RWAMAGANA | MUKARAN | KIGOMBE | yvonne@gmail.com     | 9847689656 | Rwandan     |
+|  3423 | RUTH       | HATANGA   | FEMALE | NORTHERN  | GICUMBI   | RUTARE  | GASHARU | ruth43@gmail.com     | 56327894   | Rwandan     |
+|   234 | ALINE      | IRA       | FEMALE | WESTERN   | RUBAVU    | GISENYI | RUKOMA  | ira456@gmail.com     | 6789048378 | Rwandan     |
+|  3423 | RUTH       | HATANGA   | FEMALE | NORTHERN  | GICUMBI   | RUTARE  | GASHARU | ruth43@gmail.com     | 56327894   | Rwandan     |
+|  3423 | RUTH       | HATANGA   | FEMALE | NORTHERN  | GICUMBI   | RUTARE  | GASHARU | ruth43@gmail.com     | 56327894   | Rwandan     |
+|  3423 | RUTH       | HATANGA   | FEMALE | NORTHERN  | GICUMBI   | RUTARE  | GASHARU | ruth43@gmail.com     | 56327894   | Rwandan     |
+| 32442 | ANGE       | BARORE    | FEMALE | SOURTHERN | MUHANGA   | RUKIRA  | MBUGA   | ange4@gmail.com      | 890089790  | Rwandan     |
+|  3454 | ALLEY      | BAGUME    | FEMALE | SOURTHERN | NYAMAGABE | RUBAYA  | KINIGI  | ALLEY4@gmail.com     | 5678990    | Rwandan     |
+|  3884 | ALLEY      | BIRUTA    | FEMALE | NORTHERN  | NYAMAGABE | RUBAYA  | KINIGI  | ALLEBI4@gmail.com    | 5768990    | Rwandan     |
++-------+------------+-----------+--------+-----------+-----------+---------+---------+----------------------+------------+-------------+
+13 rows in set (0.00 sec)
+
+mysql> alter table ngoma drop cell;
+Query OK, 13 rows affected (0.05 sec)
+Records: 13  Duplicates: 0  Warnings: 0
+
+mysql> select * from ngoma;
++-------+------------+-----------+--------+-----------+-----------+---------+----------------------+------------+-------------+
+| ID    | FIRST_NAME | LAST_NAME | GENDER | PROVINCE  | DISTRICT  | SECTOR  | EMAIL                | TEL_NUMBER | nationality |
++-------+------------+-----------+--------+-----------+-----------+---------+----------------------+------------+-------------+
+|    23 | INNOCENT   | KUBWIMANA | MALE   | SOUTHERN  | HUYE      | TUMBA   | innocentm@.gmail.com | 0784894940 | Rwandan     |
+| 22222 | ARE        | IRAKIZA   | MALE   | EASTERN   | KAYONZA   | RUKARA  | are2@gmail.com       | 078984978  | Rwandan     |
+|  3425 | LUISE      | CYIZERE   | FEMALE | EASTERN   | BUGESERA  | KAGUGU  | luise6@gmail.com     | 078976594  | Rwandan     |
+|  2342 | SANDO      | NEZERWA   | FEMALE | NORTHERN  | MUSANZE   | MUHOZA  | nezerwa6@gmail.com   | 074674894  | Rwandan     |
+|  2343 | YVONNE     | TUMUKUNDE | FEMALE | EASTERN   | RWAMAGANA | MUKARAN | yvonne@gmail.com     | 9847689656 | Rwandan     |
+|  3423 | RUTH       | HATANGA   | FEMALE | NORTHERN  | GICUMBI   | RUTARE  | ruth43@gmail.com     | 56327894   | Rwandan     |
+|   234 | ALINE      | IRA       | FEMALE | WESTERN   | RUBAVU    | GISENYI | ira456@gmail.com     | 6789048378 | Rwandan     |
+|  3423 | RUTH       | HATANGA   | FEMALE | NORTHERN  | GICUMBI   | RUTARE  | ruth43@gmail.com     | 56327894   | Rwandan     |
+|  3423 | RUTH       | HATANGA   | FEMALE | NORTHERN  | GICUMBI   | RUTARE  | ruth43@gmail.com     | 56327894   | Rwandan     |
+|  3423 | RUTH       | HATANGA   | FEMALE | NORTHERN  | GICUMBI   | RUTARE  | ruth43@gmail.com     | 56327894   | Rwandan     |
+| 32442 | ANGE       | BARORE    | FEMALE | SOURTHERN | MUHANGA   | RUKIRA  | ange4@gmail.com      | 890089790  | Rwandan     |
+|  3454 | ALLEY      | BAGUME    | FEMALE | SOURTHERN | NYAMAGABE | RUBAYA  | ALLEY4@gmail.com     | 5678990    | Rwandan     |
+|  3884 | ALLEY      | BIRUTA    | FEMALE | NORTHERN  | NYAMAGABE | RUBAYA  | ALLEBI4@gmail.com    | 5768990    | Rwandan     |
++-------+------------+-----------+--------+-----------+-----------+---------+----------------------+------------+-------------+
+13 rows in set (0.00 sec)
+
+mysql> select id, first_names,last_name,gender from ngoma;
+ERROR 1054 (42S22): Unknown column 'first_names' in 'field list'
+mysql> select id, FIRST_NAME,LAST_NAME,gender from ngoma;
++-------+------------+-----------+--------+
+| id    | FIRST_NAME | LAST_NAME | gender |
++-------+------------+-----------+--------+
+|    23 | INNOCENT   | KUBWIMANA | MALE   |
+| 22222 | ARE        | IRAKIZA   | MALE   |
+|  3425 | LUISE      | CYIZERE   | FEMALE |
+|  2342 | SANDO      | NEZERWA   | FEMALE |
+|  2343 | YVONNE     | TUMUKUNDE | FEMALE |
+|  3423 | RUTH       | HATANGA   | FEMALE |
+|   234 | ALINE      | IRA       | FEMALE |
+|  3423 | RUTH       | HATANGA   | FEMALE |
+|  3423 | RUTH       | HATANGA   | FEMALE |
+|  3423 | RUTH       | HATANGA   | FEMALE |
+| 32442 | ANGE       | BARORE    | FEMALE |
+|  3454 | ALLEY      | BAGUME    | FEMALE |
+|  3884 | ALLEY      | BIRUTA    | FEMALE |
++-------+------------+-----------+--------+
+13 rows in set (0.00 sec)
+
+mysql> select * from ngoma where gender='male' and sector='rutare';
+Empty set (0.00 sec)
+
+mysql> select * from ngoma;
++-------+------------+-----------+--------+-----------+-----------+---------+----------------------+------------+-------------+
+| ID    | FIRST_NAME | LAST_NAME | GENDER | PROVINCE  | DISTRICT  | SECTOR  | EMAIL                | TEL_NUMBER | nationality |
++-------+------------+-----------+--------+-----------+-----------+---------+----------------------+------------+-------------+
+|    23 | INNOCENT   | KUBWIMANA | MALE   | SOUTHERN  | HUYE      | TUMBA   | innocentm@.gmail.com | 0784894940 | Rwandan     |
+| 22222 | ARE        | IRAKIZA   | MALE   | EASTERN   | KAYONZA   | RUKARA  | are2@gmail.com       | 078984978  | Rwandan     |
+|  3425 | LUISE      | CYIZERE   | FEMALE | EASTERN   | BUGESERA  | KAGUGU  | luise6@gmail.com     | 078976594  | Rwandan     |
+|  2342 | SANDO      | NEZERWA   | FEMALE | NORTHERN  | MUSANZE   | MUHOZA  | nezerwa6@gmail.com   | 074674894  | Rwandan     |
+|  2343 | YVONNE     | TUMUKUNDE | FEMALE | EASTERN   | RWAMAGANA | MUKARAN | yvonne@gmail.com     | 9847689656 | Rwandan     |
+|  3423 | RUTH       | HATANGA   | FEMALE | NORTHERN  | GICUMBI   | RUTARE  | ruth43@gmail.com     | 56327894   | Rwandan     |
+|   234 | ALINE      | IRA       | FEMALE | WESTERN   | RUBAVU    | GISENYI | ira456@gmail.com     | 6789048378 | Rwandan     |
+|  3423 | RUTH       | HATANGA   | FEMALE | NORTHERN  | GICUMBI   | RUTARE  | ruth43@gmail.com     | 56327894   | Rwandan     |
+|  3423 | RUTH       | HATANGA   | FEMALE | NORTHERN  | GICUMBI   | RUTARE  | ruth43@gmail.com     | 56327894   | Rwandan     |
+|  3423 | RUTH       | HATANGA   | FEMALE | NORTHERN  | GICUMBI   | RUTARE  | ruth43@gmail.com     | 56327894   | Rwandan     |
+| 32442 | ANGE       | BARORE    | FEMALE | SOURTHERN | MUHANGA   | RUKIRA  | ange4@gmail.com      | 890089790  | Rwandan     |
+|  3454 | ALLEY      | BAGUME    | FEMALE | SOURTHERN | NYAMAGABE | RUBAYA  | ALLEY4@gmail.com     | 5678990    | Rwandan     |
+|  3884 | ALLEY      | BIRUTA    | FEMALE | NORTHERN  | NYAMAGABE | RUBAYA  | ALLEBI4@gmail.com    | 5768990    | Rwandan     |
++-------+------------+-----------+--------+-----------+-----------+---------+----------------------+------------+-------------+
+13 rows in set (0.00 sec)
+
+mysql> select * from ngoma where gender='female' and sector='rutare';
++------+------------+-----------+--------+----------+----------+--------+------------------+------------+-------------+
+| ID   | FIRST_NAME | LAST_NAME | GENDER | PROVINCE | DISTRICT | SECTOR | EMAIL            | TEL_NUMBER | nationality |
++------+------------+-----------+--------+----------+----------+--------+------------------+------------+-------------+
+| 3423 | RUTH       | HATANGA   | FEMALE | NORTHERN | GICUMBI  | RUTARE | ruth43@gmail.com | 56327894   | Rwandan     |
+| 3423 | RUTH       | HATANGA   | FEMALE | NORTHERN | GICUMBI  | RUTARE | ruth43@gmail.com | 56327894   | Rwandan     |
+| 3423 | RUTH       | HATANGA   | FEMALE | NORTHERN | GICUMBI  | RUTARE | ruth43@gmail.com | 56327894   | Rwandan     |
+| 3423 | RUTH       | HATANGA   | FEMALE | NORTHERN | GICUMBI  | RUTARE | ruth43@gmail.com | 56327894   | Rwandan     |
++------+------------+-----------+--------+----------+----------+--------+------------------+------------+-------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from ngoma where gender='female' or sector='rutare';
++-------+------------+-----------+--------+-----------+-----------+---------+--------------------+------------+-------------+
+| ID    | FIRST_NAME | LAST_NAME | GENDER | PROVINCE  | DISTRICT  | SECTOR  | EMAIL              | TEL_NUMBER | nationality |
++-------+------------+-----------+--------+-----------+-----------+---------+--------------------+------------+-------------+
+|  3425 | LUISE      | CYIZERE   | FEMALE | EASTERN   | BUGESERA  | KAGUGU  | luise6@gmail.com   | 078976594  | Rwandan     |
+|  2342 | SANDO      | NEZERWA   | FEMALE | NORTHERN  | MUSANZE   | MUHOZA  | nezerwa6@gmail.com | 074674894  | Rwandan     |
+|  2343 | YVONNE     | TUMUKUNDE | FEMALE | EASTERN   | RWAMAGANA | MUKARAN | yvonne@gmail.com   | 9847689656 | Rwandan     |
+|  3423 | RUTH       | HATANGA   | FEMALE | NORTHERN  | GICUMBI   | RUTARE  | ruth43@gmail.com   | 56327894   | Rwandan     |
+|   234 | ALINE      | IRA       | FEMALE | WESTERN   | RUBAVU    | GISENYI |ira456@gmail.com    | 6789048378 | Rwandan     |
+|  3423 | RUTH       | HATANGA   | FEMALE | NORTHERN  | GICUMBI   | RUTARE  | ruth43@gmail.com   | 56327894   | Rwandan     |
+|  3423 | RUTH       | HATANGA   | FEMALE | NORTHERN  | GICUMBI   | RUTARE  | ruth43@gmail.com   | 56327894   | Rwandan     |
+|  3423 | RUTH       | HATANGA   | FEMALE | NORTHERN  | GICUMBI   | RUTARE  | ruth43@gmail.com   | 56327894   | Rwandan     |
+| 32442 | ANGE       | BARORE    | FEMALE | SOURTHERN | MUHANGA   | RUKIRA  | ange4@gmail.com    | 890089790  | Rwandan     |
+|  3454 | ALLEY      | BAGUME    | FEMALE | SOURTHERN | NYAMAGABE | RUBAYA  | ALLEY4@gmail.com   | 5678990    | Rwandan     |
+|  3884 | ALLEY      | BIRUTA    | FEMALE | NORTHERN  | NYAMAGABE | RUBAYA  | ALLEBI4@gmail.com  | 5768990    | Rwandan     |
++-------+------------+-----------+--------+-----------+-----------+---------+--------------------+------------+-------------+
+11 rows in set (0.00 sec)
+
+mysql>
